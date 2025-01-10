@@ -1,0 +1,51 @@
+
+     <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <!-- Normaliza��o de estilo para evitar inconsist�ncias entre navegadores -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="positionlogo">
+            <!-- Logo da empresa -->
+            <img class="imglogo" src="/static/assets/logosemfundo.svg" alt="Imagem Logo" style="max-width: 100px;">
+        </div>
+
+        <form class="container" method="post">
+            <!-- Logo de login -->
+            <img class="logo" src="/static/assets/logopadrao.svg" alt="Logo Padr�o" style="max-width: 200px;">
+
+            <!-- Campos de entrada -->
+            <input class="inputs" type="text" name="login" id="login" placeholder="Login" required>
+            <input class="inputs" type="password" name="senha" id="senha" placeholder="Senha" required>
+
+            <!-- Bot�o de envio -->
+            <button type="submit" class="but">Entrar</button>
+        </form>
+
+        {% if message %}
+        <p style="color: red;">{{ message }}</p>
+    {% endif %}
+
+    </main>
+
+    <!-- Script de login -->
+    <script src="/static/js/login.js"></script>
+
+</body>
+
+</html>
+        

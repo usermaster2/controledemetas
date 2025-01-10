@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Usuário</title>
+  <link rel="stylesheet" href="/static/css/cadastrar_usuarios.css">
+</head>
+
+<body>
+  <main class="container">
+    <div class="card">
+      <div class="logs">
+        <img class="imglogo" src="/static/assets/logosemfundo.svg" alt="Logo">
+        <img class="imglogo" src="/static/assets/logopadrao.svg" alt="Logo">
+      </div>
+      <h2 class="title">Cadastro de Usuário</h2>
+      <form id="formCadastro">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
+        </div>
+        <div class="form-group">
+
+          <label for="cargo">Cargo</label>
+          <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo" required>
+        </div>
+        <div class="form-group">
+          <label>Permissões:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" id="cadastra" name="cadastra"> Cadastrar</label>
+            <label><input type="checkbox" id="altera" name="altera"> Alterar</label>
+            <label><input type="checkbox" id="remove" name="remove"> Remover</label>
+            <label><input type="checkbox" id="lista" name="lista"> Listar</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Digite o nome de usuário" required>
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite a senha" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmSenha">Confirmar Senha</label>
+          <input type="password" id="confirmSenha" name="confirmSenha" placeholder="Confirme a senha" required>
+        </div>
+        <button type="submit" class="btn">Cadastrar</button>
+        <button class="Exit" onclick="abrirpopup()">Voltar</button>
+
+      </form>
+    </div>
+  </main>
+
+  <div id="popupsair" class="popupsair">
+    <div class="cardsair">
+      <p class="psair">Deseja sair ?</p>
+      <span class="opc1">
+
+        <a href="/tela_inicial">
+          <div onclick="volt()" class="opc">Sim</div>
+        </a>
+
+
+        <a href="./../tela_inicial/tela_inicial.html"></a>
+        <div onclick="fecharpopup()" id="nao" class="opc">Não</div>
+      </span>
+    </div>
+  </div>
+  <script src="/static/js/cadastrar_usuarios.js"></script>
+</body>
+
+</html>

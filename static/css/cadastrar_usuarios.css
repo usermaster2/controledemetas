@@ -1,0 +1,270 @@
+/* Geral */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(assets/banner.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* Estilo do Card */
+.card {
+    width: 40rem;
+    max-width: 90%;
+    height: 45rem;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 0px 50px 0px 50px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: rgb(182, 31, 31);
+    margin: 0;
+    text-shadow: #444444 1px 0px 1px;
+
+}
+
+.logs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .imglogo {
+    width: 20%;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Estilo do Formulário */
+.card form {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    margin: 0;
+}
+
+.card .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 1px;
+
+
+}
+
+.card .form-group label {
+    font-size: 14px;
+    color: #000000;
+
+}
+
+.card .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+
+}
+
+.card .form-group input:focus {
+    border-color: #82342C;
+    outline: none;
+}
+
+/* Estilo das checkboxes */
+.card .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    color: #000000;
+}
+
+.card .checkbox-group label {
+    font-size: 14px;
+   
+    display: flex;
+    align-items: center;
+}
+
+.card .checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Botão */
+.card .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #c9302c;
+}
+
+.Exit {
+    width: 20%;
+    padding: 10px;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.Exit:hover {
+    background-color: #8d1a16;
+}
+
+/* popup sair */
+.popupsair{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(65, 65, 65, 0.411);
+    display: none;
+}
+.cardsair{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cardsair .opc1{
+    display: flex;
+
+}
+.cardsair .opc{
+    background: #d9534f ;
+    color: #fff;
+    padding: 3px;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    margin-left: .3rem;
+    margin-right: .3rem;
+    transition: .4s;
+
+}
+.cardsair .opc:hover{
+    background: #b41914 ;
+    color: #fff;
+    cursor: pointer;
+    transition: .4s;
+   
+
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        position: absolute;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .container {
+        padding: 0;
+
+    }
+
+    .logs {
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+
+    }
+
+}
+
+@media (max-height: 730px) {
+    .card {
+        width: 95%;
+        height: 95%;
+    }
+
+    .logs .imglogo {
+        width: 7rem;
+    }
+
+}
+
+@media (max-height: 730px) {
+    .card {
+        overflow: scroll;
+    }
+
+    .logs .imglogo {
+        width: 7rem;
+    }
+
+}
