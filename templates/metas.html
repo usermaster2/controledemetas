@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metas - Página Principal</title>
+</head>
+
+<body>
+    <h1>Metas</h1>
+    <a href="{{ url_for('add') }}">Adicionar Nova Meta</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ano</th>
+                <th>Janeiro</th>
+                <th>Fevereiro</th>
+                <th>Março</th>
+                <th>Abril</th>
+                <th>Maio</th>
+                <th>Junho</th>
+                <th>Julho</th>
+                <th>Agosto</th>
+                <th>Setembro</th>
+                <th>Outubro</th>
+                <th>Novembro</th>
+                <th>Dezembro</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meta in metas %}
+            <tr>
+                <td>{{ meta.ano }}</td>
+                <td>{{ meta.janeiro }}</td>
+                <td>{{ meta.fevereiro }}</td>
+                <td>{{ meta.marco }}</td>
+                <td>{{ meta.abril }}</td>
+                <td>{{ meta.maio }}</td>
+                <td>{{ meta.junho }}</td>
+                <td>{{ meta.julho }}</td>
+                <td>{{ meta.agosto }}</td>
+                <td>{{ meta.setembro }}</td>
+                <td>{{ meta.outubro }}</td>
+                <td>{{ meta.novembro }}</td>
+                <td>{{ meta.dezembro }}</td>
+                <td>
+                    <a href="{{ url_for('edit', id=meta.id) }}">Editar</a>
+                    <a href="{{ url_for('delete', id=meta.id) }}"
+                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

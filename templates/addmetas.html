@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Meta</title>
+    <link rel="stylesheet" href="/static/css/addmetas.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Adicionar Nova Meta</h1>
+        <form action="{{ url_for('addmetas') }}" method="POST">
+            <!-- <label for="ano">Ano:</label> -->
+            <input type="number" id="ano" name="ano"  required>
+
+            <label for="janeiro">Janeiro:</label>
+            <input type="number" id="janeiro" name="janeiro">
+
+            <label for="fevereiro">Fevereiro:</label>
+            <input type="number" id="fevereiro" name="fevereiro">
+
+            <label for="marco">Março:</label>
+            <input type="number" id="marco" name="marco">
+
+            <label for="abril">Abril:</label>
+            <input type="number" id="abril" name="abril">
+
+            <label for="maio">Maio:</label>
+            <input type="number" id="maio" name="maio">
+
+            <label for="junho">Junho:</label>
+            <input type="number" id="junho" name="junho">
+
+            <label for="julho">Julho:</label>
+            <input type="number" id="julho" name="julho">
+
+            <label for="agosto">Agosto:</label>
+            <input type="number" id="agosto" name="agosto">
+
+            <label for="setembro">Setembro:</label>
+            <input type="number" id="setembro" name="setembro">
+
+            <label for="outubro">Outubro:</label>
+            <input type="number" id="outubro" name="outubro">
+
+            <label for="novembro">Novembro:</label>
+            <input type="number" id="novembro" name="novembro">
+
+            <label for="dezembro">Dezembro:</label>
+            <input type="number" id="dezembro" name="dezembro">
+
+            <input type="submit" value="Adicionar">
+        </form>
+    </div>
+</body>
+</html>

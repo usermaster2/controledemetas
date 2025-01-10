@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Meta</title>
+</head>
+<body>
+    <h1>Editar Meta</h1>
+    <form action="{{ url_for('edit', id=meta.id) }}" method="POST">
+        Ano: <input type="text" name="ano" value="{{ meta.ano }}" required><br>
+        Janeiro: <input type="text" name="janeiro" value="{{ meta.janeiro }}"><br>
+        Fevereiro: <input type="text" name="fevereiro" value="{{ meta.fevereiro }}"><br>
+        Março: <input type="text" name="marco" value="{{ meta.marco }}"><br>
+        Abril: <input type="text" name="abril" value="{{ meta.abril }}"><br>
+        Maio: <input type="text" name="maio" value="{{ meta.maio }}"><br>
+        Junho: <input type="text" name="junho" value="{{ meta.junho }}"><br>
+        Julho: <input type="text" name="julho" value="{{ meta.julho }}"><br>
+        Agosto: <input type="text" name="agosto" value="{{ meta.agosto }}"><br>
+        Setembro: <input type="text" name="setembro" value="{{ meta.setembro }}"><br>
+        Outubro: <input type="text" name="outubro" value="{{ meta.outubro }}"><br>
+        Novembro: <input type="text" name="novembro" value="{{ meta.novembro }}"><br>
+        Dezembro: <input type="text" name="dezembro" value="{{ meta.dezembro }}"><br>
+        <input type="submit" value="Atualizar">
+    </form>
+</body>
+</html>

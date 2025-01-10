@@ -39,7 +39,6 @@ def tela_inicial():
 def cadastrar_usuarios(): 
     return render_template('cadastrar_usuarios.html')
 
-
 @app.route('/cadastrar', methods=['POST'])
 def cadastrar(): 
     data     = request.get_json()  # Captura os dados JSON enviados pelo front-end
@@ -53,6 +52,82 @@ def cadastrar():
     senha    = data.get('senha')
     
     
+
+    
+  # Adicionar dados
+@app.route('/addmetas.html', methods=['GET', 'POST'])
+def addmetas():
+    if request.method == 'POST':
+        ano = request.form['ano']
+        janeiro = request.form['janeiro']
+        fevereiro = request.form['fevereiro']
+        marco = request.form['marco']
+        abril = request.form['abril']
+        maio = request.form['maio']
+        junho = request.form['junho']
+        julho = request.form['julho']
+        agosto = request.form['agosto']
+        setembro = request.form['setembro']
+        outubro = request.form['outubro']
+        novembro = request.form['novembro']
+        dezembro = request.form['dezembro']
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO metas (ano, janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (ano, janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('addmetas'))
+
+    return render_template('addmetas.html')  
+    
+# Editar dados
+@app.route('/editarmetas/<int:id>', methods=['GET', 'POST'])
+def editarmetas(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    if request.method == 'POST':
+        ano = request.form['ano']
+        janeiro = request.form['janeiro']
+        fevereiro = request.form['fevereiro']
+        marco = request.form['marco']
+        abril = request.form['abril']
+        maio = request.form['maio']
+        junho = request.form['junho']
+        julho = request.form['julho']
+        agosto = request.form['agosto']
+        setembro = request.form['setembro']
+        outubro = request.form['outubro']
+        novembro = request.form['novembro']
+        dezembro = request.form['dezembro']
+
+        cursor.execute('''
+            UPDATE metas
+            SET ano = ?, janeiro = ?, fevereiro = ?, marco = ?, abril = ?, maio = ?, junho = ?, julho = ?, agosto = ?, setembro = ?, outubro = ?, novembro = ?, dezembro = ?
+            WHERE id = ?
+        ''', (ano, janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro, id))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('index'))
+
+    cursor.execute('SELECT * FROM metas WHERE id = ?', (id,))
+    meta = cursor.fetchone()
+    conn.close()
+    return render_template('editarmetas.html', meta=meta)
+
+
+    # Excluir dados
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
+def delete(id):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM metas WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('index'))
     
 #  //////////////////////////////////////////////////
 
