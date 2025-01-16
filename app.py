@@ -25,6 +25,9 @@ def get_db_connection():
     )
     return conn
 #rotas para as paginas  /////////////////////////////////
+@app.route('/verMetas.html')
+def verMetas():
+    return render_template('verMetas.html')
 
 @app.route('/cadastrar_usuarios.html')
 def cadastrar_usuario(): 
@@ -33,11 +36,6 @@ def cadastrar_usuario():
 @app.route('/tela_inicial')
 def tela_inicial(): 
     return render_template('tela_inicial.html')
-
-
-@app.route('/cadastrar_usuarios')
-def cadastrar_usuarios(): 
-    return render_template('cadastrar_usuarios.html')
 
 @app.route('/cadastrar', methods=['POST'])
 def cadastrar(): 
@@ -55,22 +53,37 @@ def cadastrar():
 
     
   # Adicionar dados
+  
+   # Convertendo os valores de texto para número (int)
+
+        
 @app.route('/addmetas.html', methods=['GET', 'POST'])
 def addmetas():
     if request.method == 'POST':
         ano = request.form['ano']
-        janeiro = request.form['janeiro']
-        fevereiro = request.form['fevereiro']
-        marco = request.form['marco']
-        abril = request.form['abril']
-        maio = request.form['maio']
-        junho = request.form['junho']
-        julho = request.form['julho']
-        agosto = request.form['agosto']
-        setembro = request.form['setembro']
-        outubro = request.form['outubro']
-        novembro = request.form['novembro']
-        dezembro = request.form['dezembro']
+        
+        # Função para limpar o formato e converter para número
+        def converter_para_numero(valor):
+            # Remover pontos (separadores de milhar) e substituir a vírgula por ponto
+            valor_limpo = valor.replace('.', '').replace(',', '.')
+            try:
+                return float(valor_limpo)
+            except ValueError:
+                return 0  # Retorna 0 caso o valor não seja válido
+        
+        # Convertendo os valores de texto para número (float)
+        janeiro = converter_para_numero(request.form['janeiro']) if request.form['janeiro'] else 0
+        fevereiro = converter_para_numero(request.form['fevereiro']) if request.form['fevereiro'] else 0
+        marco = converter_para_numero(request.form['marco']) if request.form['marco'] else 0
+        abril = converter_para_numero(request.form['abril']) if request.form['abril'] else 0
+        maio = converter_para_numero(request.form['maio']) if request.form['maio'] else 0
+        junho = converter_para_numero(request.form['junho']) if request.form['junho'] else 0
+        julho = converter_para_numero(request.form['julho']) if request.form['julho'] else 0
+        agosto = converter_para_numero(request.form['agosto']) if request.form['agosto'] else 0
+        setembro = converter_para_numero(request.form['setembro']) if request.form['setembro'] else 0
+        outubro = converter_para_numero(request.form['outubro']) if request.form['outubro'] else 0
+        novembro = converter_para_numero(request.form['novembro']) if request.form['novembro'] else 0
+        dezembro = converter_para_numero(request.form['dezembro']) if request.form['dezembro'] else 0
 
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -82,7 +95,9 @@ def addmetas():
         conn.close()
         return redirect(url_for('addmetas'))
 
-    return render_template('addmetas.html')  
+    return render_template('addmetas.html')
+
+ 
     
 # Editar dados
 @app.route('/editarmetas/<int:id>', methods=['GET', 'POST'])

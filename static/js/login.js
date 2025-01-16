@@ -1,3 +1,9 @@
+window.onload = function () {
+    document.getElementById("login").focus();
+};
+
+
+
 document.querySelector('.container').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -14,12 +20,13 @@ document.querySelector('.container').addEventListener('submit', async (event) =>
         });
 
         if (response.ok) {
-                    const data = await response.json();
+            const data = await response.json();
 
             // Redirecionar para a URL recebida no JSON
             window.location.href = data.redirect_url;
         } else {
-            alert(data.message);
+            const errorData = await response.json();
+            alert(errorData.message);
         }
     } catch (err) {
         console.error('Erro:', err);

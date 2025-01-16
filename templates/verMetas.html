@@ -9,7 +9,7 @@
 
 <body>
     <h1>Metas</h1>
-    <a href="{{ url_for('add') }}">Adicionar Nova Meta</a>
+    <a href="{{ url_for('addmetas') }}">Adicionar Nova Meta</a>
     <table border="1">
         <thead>
             <tr>
@@ -54,6 +54,8 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <script src="/static/js/verMetas.js"></script>
 </body>
 
 </html>

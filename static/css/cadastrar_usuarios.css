@@ -42,7 +42,7 @@ main {
 .card h2 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: rgb(182, 31, 31);
+    color: #82342C;
     margin: 0;
     text-shadow: #444444 1px 0px 1px;
 
@@ -131,7 +131,7 @@ main {
 .card .btn {
     width: 100%;
     padding: 10px;
-    background-color: #d9534f;
+    background-color: #82342C;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -141,13 +141,13 @@ main {
 }
 
 .card .btn:hover {
-    background-color: #c9302c;
+    background-color: #82342C;
 }
 
 .Exit {
     width: 20%;
     padding: 10px;
-    background-color: #d9534f;
+    background-color: #82342C;
     border: none;
     border-radius: 5px;
     font-size: 16px;
