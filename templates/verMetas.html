@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/verMetas.css">
     <title>Metas - Página Principal</title>
 </head>
 
 <body>
     <h1>Metas</h1>
     <a href="{{ url_for('addmetas') }}">Adicionar Nova Meta</a>
-    <table border="1">
+    <table >
         <thead>
             <tr>
                 <th>Ano</th>
@@ -26,11 +28,11 @@
                 <th>Outubro</th>
                 <th>Novembro</th>
                 <th>Dezembro</th>
-                <th>Ações</th>
+                <th>Meta total</th>
             </tr>
         </thead>
         <tbody>
-            {% for meta in metas %}
+            <!-- {% for meta in metas %} -->
             <tr>
                 <td>{{ meta.ano }}</td>
                 <td>{{ meta.janeiro }}</td>
@@ -45,13 +47,12 @@
                 <td>{{ meta.outubro }}</td>
                 <td>{{ meta.novembro }}</td>
                 <td>{{ meta.dezembro }}</td>
+                <td>{{ meta.meta_total }}</td>
                 <td>
-                    <a href="{{ url_for('edit', id=meta.id) }}">Editar</a>
-                    <a href="{{ url_for('delete', id=meta.id) }}"
-                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                   
                 </td>
             </tr>
-            {% endfor %}
+            <!-- {% endfor %} -->
         </tbody>
     </table>
 
