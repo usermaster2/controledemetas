@@ -5,6 +5,30 @@ body {
     background-color: #f4f4f4;
 }
 
+.linkedit {
+    background-color: #82342C;
+    color: white;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 3rem;
+    transition: .2s;
+    text-decoration: none;
+}
+
+.linkedit:hover {
+    box-shadow: 0px 2px 5px rgba(0, 0, 1, 1);
+    transition: .2s;
+    text-decoration: none;
+
+}
+.selected {
+    background-color: #666666; /* Cor de fundo para a linha selecionada */
+    cursor: pointer;
+}
+
 h1 {
     text-align: center;
     margin: 20px 0;
@@ -13,7 +37,7 @@ h1 {
 
 a {
     text-decoration: none;
-    color: #007bff;
+    color: #82342C;
 }
 
 a:hover {
@@ -29,8 +53,35 @@ table {
 }
 
 thead {
-    background-color: #007bff;
+    background-color: #82342C;
     color: white;
+}
+
+.rotas {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.location {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.location a {
+    border-radius: 10rem;
+    background-color: #82342C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    margin: 1rem;
+    color: white;
+
 }
 
 thead th {
@@ -47,7 +98,8 @@ tbody tr:hover {
     background-color: #f1f1f1;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;

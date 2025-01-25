@@ -75,6 +75,8 @@ def verMetas():
         return render_template('verMetas.html', metas=metas)
     except Exception as e:
         return f"Erro: {e}"
+    
+
   
 
 @app.route('/cadastrar_usuarios.html')
@@ -161,37 +163,91 @@ def addmetas():
 
     return render_template('addmetas.html')
 
-# @app.route('/editarmetas.html', methods=['GET', 'POST'])
-# def editarmetas():
-#     conn = get_db_connection()
-#     cursor = conn.cursor()
-#     if request.method == 'POST':
-#         meses = ['ano', 'janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho',
-#                  'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
-#         valores = [request.form[m] for m in meses]
 
-#         cursor.execute('''
-#             UPDATE metas
-#             SET ano = ?, janeiro = ?, fevereiro = ?, marco = ?, abril = ?, maio = ?, junho = ?, julho = ?, agosto = ?, setembro = ?, outubro = ?, novembro = ?, dezembro = ?
-#             WHERE  = ?
-#         ''', (*valores,))
-#         conn.commit()
-#         conn.close()
-#         return redirect(url_for('index'))
+@app.route('/editarmetas/<int:ano>', methods=['GET', 'POST'])
+def editarmetas(ano):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-#     cursor.execute('SELECT * FROM metas WHERE  = ?')
-#     meta = cursor.fetchone()
-#     conn.close()
-#     return render_template('editarmetas.html', meta=meta)
+        if request.method == 'POST':
+            # Captura os dados do formulário
+            janeiro = request.form['janeiro']
+            fevereiro = request.form['fevereiro']
+            marco = request.form['marco']
+            abril = request.form['abril']
+            maio = request.form['maio']
+            junho = request.form['junho']
+            julho = request.form['julho']
+            agosto = request.form['agosto']
+            setembro = request.form['setembro']
+            outubro = request.form['outubro']
+            novembro = request.form['novembro']
+            dezembro = request.form['dezembro']
+            meta_total = request.form['meta_total']
 
-# @app.route('/delete.html', methods=['GET', 'POST'])
-# def delete():
-#     conn = get_db_connection()
-#     cursor = conn.cursor()
-#     cursor.execute('DELETE FROM metas WHERE id = ?', (id,))
-#     conn.commit()
-#     conn.close()
-#     return redirect(url_for('index'))
+            # Atualiza os dados no banco de dados
+            cursor.execute('''
+                UPDATE Metas
+                SET janeiro = ?, fevereiro = ?, marco = ?, abril = ?, maio = ?, junho = ?, 
+                    julho = ?, agosto = ?, setembro = ?, outubro = ?, novembro = ?, dezembro = ?, meta_total = ?
+                WHERE ano = ?
+            ''', (janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro, meta_total, ano))
+
+            conn.commit()  # Confirma as alterações no banco
+
+            return redirect(url_for('verMetas'))  # Redireciona para a página de visualização das metas
+
+        # Caso o método seja GET, busca os dados para exibição
+        cursor.execute(''' 
+            SELECT 
+                ano,
+                janeiro,
+                fevereiro,
+                marco,
+                abril,
+                maio,
+                junho,
+                julho,
+                agosto,
+                setembro,
+                outubro,
+                novembro,
+                dezembro,
+                meta_total
+            FROM Metas
+            WHERE ano = ?
+        ''', (ano,))
+        row = cursor.fetchone()
+
+        if row:
+            meta = {
+                'ano': row[0],
+                'janeiro': row[1],
+                'fevereiro': row[2],
+                'marco': row[3],
+                'abril': row[4],
+                'maio': row[5],
+                'junho': row[6],
+                'julho': row[7],
+                'agosto': row[8],
+                'setembro': row[9],
+                'outubro': row[10],
+                'novembro': row[11],
+                'dezembro': row[12],
+                'meta_total': row[13]
+            }
+            return render_template('editarmetas.html', meta=meta)
+        else:
+            return "Meta não encontrada para o ano especificado.", 404
+
+    except Exception as e:
+        return f"Erro: {e}"
+    finally:
+        conn.close()
+
+
+
 
 # Rota para exibir a página de login
 @app.route('/')

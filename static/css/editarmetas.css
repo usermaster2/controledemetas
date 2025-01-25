@@ -1,0 +1,154 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(/static/assets/banner.svg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilo do cartão */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #82342C;
+}
+
+/* Estilo do formulário */
+form {
+    display: block;
+    gap: 15px;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #474747;
+}
+
+.act {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[type="button"] {
+    background-color: #82342C;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+
+}
+
+input[type="submit"] {
+    background-color: #82342C;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #82342C;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+    }
+
+    .card h1 {
+        font-size: 1.2rem;
+    }
+
+    label {
+        font-size: 0.85rem;
+    }
+
+    input[type="number"] {
+        font-size: 0.9rem;
+    }
+
+    input[type="submit"] {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .act {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .card {
+        padding: 0;
+        width: 100%;
+        margin: 0;
+        max-width: none;
+        overflow: hidden;
+    }
+
+    form {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 10px;
+        display: block;
+    }
+
+    .card h1 {
+        font-size: 1.5rem;
+    }
+
+    label {
+        font-size: 0.8rem;
+    }
+
+    input[type="number"] {
+        font-size: 0.8rem;
+        width: 95%;
+        padding: 10px;
+    }
+
+    input[type="submit"] {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+
+    body {
+        background-image: none;
+        padding: 0;
+    }
+}

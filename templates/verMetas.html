@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="/static/css/verMetas.css">
     <title>Metas - Página Principal</title>
 </head>
-
 <body>
     <h1>Metas</h1>
-    <a href="{{ url_for('addmetas') }}">Adicionar Nova Meta</a>
-    <table >
+    <div class="location">
+        <a href="{{ url_for('addmetas') }}">Adicionar Nova Meta</a>
+        <a href="#" id="edit-link">Editar Metas</a>
+        <a href="{{ url_for('addmetas') }}">Deletar Meta</a>
+    </div>
+
+    <table>
         <thead>
             <tr>
                 <th>Ano</th>
@@ -33,7 +35,7 @@
         </thead>
         <tbody>
             <!-- {% for meta in metas %} -->
-            <tr>
+            <tr class="meta-row" data-ano="{{ meta.ano }}">
                 <td>{{ meta.ano }}</td>
                 <td>{{ meta.janeiro }}</td>
                 <td>{{ meta.fevereiro }}</td>
@@ -48,15 +50,13 @@
                 <td>{{ meta.novembro }}</td>
                 <td>{{ meta.dezembro }}</td>
                 <td>{{ meta.meta_total }}</td>
-                <td>
-                   
-                </td>
             </tr>
             <!-- {% endfor %} -->
         </tbody>
     </table>
 
+  
+
     <script src="/static/js/verMetas.js"></script>
 </body>
-
 </html>
