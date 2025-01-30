@@ -185,7 +185,7 @@ def editarmetas(ano):
             outubro = request.form['outubro']
             novembro = request.form['novembro']
             dezembro = request.form['dezembro']
-            meta_total = request.form['meta_total']
+       
 
            
 
@@ -193,9 +193,9 @@ def editarmetas(ano):
             cursor.execute('''
                 UPDATE Metas
                 SET janeiro = ?, fevereiro = ?, marco = ?, abril = ?, maio = ?, junho = ?, 
-                    julho = ?, agosto = ?, setembro = ?, outubro = ?, novembro = ?, dezembro = ?, meta_total = ?
+                    julho = ?, agosto = ?, setembro = ?, outubro = ?, novembro = ?, dezembro = ?
                 WHERE ano = ?
-            ''', (janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro, meta_total, ano))
+            ''', (janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro, ano))
 
             conn.commit()  # Confirma as alterações no banco
             
@@ -224,6 +224,7 @@ def editarmetas(ano):
                 outubro,
                 novembro,
                 dezembro
+            
               
             FROM Metas
             WHERE ano = ?

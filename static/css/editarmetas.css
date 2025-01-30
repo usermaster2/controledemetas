@@ -42,6 +42,20 @@ label {
     font-size: 0.9rem;
     color: #474747;
 }
+.ebibix{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.ebibix input{
+    width: 50%;
+}
+
+.ebibix span{
+    display: flex;
+    flex-direction: column;
+}
 
 .act {
     width: 100%;
@@ -170,6 +184,9 @@ input[type="submit"]:hover {
         font-size: 0.8rem;
         width: 95%;
         padding: 10px;
+    }
+    .ebibix input{
+        width: 95%;
     }
 
     /* Wrapper para adicionar o símbolo de moeda */
