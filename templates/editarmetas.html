@@ -7,46 +7,51 @@
     <title>Editar Metas</title>
 </head>
 <body>
+
+    <div class="card">
     <h1>Editar Metas - Ano {{ meta.ano }}</h1>
+    <DIV class="ebibix">
+        <label for="janeiro">Janeiro:</label>
+        <input class="currency" type="text" name="total meta" value="{{ meta_total }}" required><br>
+
+    </DIV>
     <form method="POST">
         <label for="janeiro">Janeiro:</label>
-        <input type="number" name="janeiro" value="{{ meta.janeiro }}" required><br>
+        <input class="currency" type="text" name="janeiro" value="{{ meta.janeiro }}" required><br>
 
         <label for="fevereiro">Fevereiro:</label>
-        <input type="number" name="fevereiro" value="{{ meta.fevereiro }}" required><br>
+        <input class="currency" type="text" name="fevereiro" value="{{ meta.fevereiro }}" required><br>
 
         <label for="marco">Março:</label>
-        <input type="number" name="marco" value="{{ meta.marco }}" required><br>
+        <input class="currency" type="text" name="marco" value="{{ meta.marco }}" required><br>
 
         <label for="abril">Abril:</label>
-        <input type="number" name="abril" value="{{ meta.abril }}" required><br>
+        <input class="currency" type="text" name="abril" value="{{ meta.abril }}" required><br>
 
         <label for="maio">Maio:</label>
-        <input type="number" name="maio" value="{{ meta.maio }}" required><br>
+        <input class="currency" type="text" name="maio" value="{{ meta.maio }}" required><br>
 
         <label for="junho">Junho:</label>
-        <input type="number" name="junho" value="{{ meta.junho }}" required><br>
+        <input class="currency" type="text" name="junho" value="{{ meta.junho }}" required><br>
 
         <label for="julho">Julho:</label>
-        <input type="number" name="julho" value="{{ meta.julho }}" required><br>
+        <input class="currency" type="text" name="julho" value="{{ meta.julho }}" required><br>
 
         <label for="agosto">Agosto:</label>
-        <input type="number" name="agosto" value="{{ meta.agosto }}" required><br>
+        <input class="currency" type="text" name="agosto" value="{{ meta.agosto }}" required><br>
 
         <label for="setembro">Setembro:</label>
-        <input type="number" name="setembro" value="{{ meta.setembro }}" required><br>
+        <input class="currency" type="text" name="setembro" value="{{ meta.setembro }}" required><br>
 
         <label for="outubro">Outubro:</label>
-        <input type="number" name="outubro" value="{{ meta.outubro }}" required><br>
+        <input class="currency" type="text" name="outubro" value="{{ meta.outubro }}" required><br>
 
         <label for="novembro">Novembro:</label>
-        <input type="number" name="novembro" value="{{ meta.novembro }}" required><br>
+        <input class="currency" type="text" name="novembro" value="{{ meta.novembro }}" required><br>
 
         <label for="dezembro">Dezembro:</label>
-        <input type="number" name="dezembro" value="{{ meta.dezembro }}" required><br>
+        <input class="currency" type="text" name="dezembro" value="{{ meta.dezembro }}" required><br>
 
-        <label for="meta_total">Meta Total:</label>
-        <input type="number" name="meta_total" value="{{ meta.meta_total }}" required><br>
 
         <div class="act">
             <input class="currency" type="submit" value="Adicionar">
@@ -56,7 +61,8 @@
             </a>
         </div>
     </form>
+</div>
 
-    <script src="/static/js/verMetas.js"></script>
+    <script src="/static/js/editarmetas.js"></script>
 </body>
 </html>

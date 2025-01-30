@@ -158,6 +158,7 @@ def addmetas():
         ''', (ano))
         conn.commit()
         
+        
         conn.close()
         return redirect(url_for('addmetas'))
 
@@ -186,6 +187,8 @@ def editarmetas(ano):
             dezembro = request.form['dezembro']
             meta_total = request.form['meta_total']
 
+           
+
             # Atualiza os dados no banco de dados
             cursor.execute('''
                 UPDATE Metas
@@ -195,6 +198,13 @@ def editarmetas(ano):
             ''', (janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro, meta_total, ano))
 
             conn.commit()  # Confirma as alterações no banco
+            
+            cursor.execute('''
+            UPDATE Metas SET meta_total =  ( janeiro + fevereiro + marco + abril + maio + junho + julho + agosto + setembro + outubro + novembro + dezembro)
+            WHERE ANO = ?
+        ''', (ano))
+            conn.commit()
+            
 
             return redirect(url_for('verMetas'))  # Redireciona para a página de visualização das metas
 
@@ -213,8 +223,8 @@ def editarmetas(ano):
                 setembro,
                 outubro,
                 novembro,
-                dezembro,
-                meta_total
+                dezembro
+              
             FROM Metas
             WHERE ano = ?
         ''', (ano,))
@@ -234,8 +244,8 @@ def editarmetas(ano):
                 'setembro': row[9],
                 'outubro': row[10],
                 'novembro': row[11],
-                'dezembro': row[12],
-                'meta_total': row[13]
+                'dezembro': row[12]
+                
             }
             return render_template('editarmetas.html', meta=meta)
         else:
