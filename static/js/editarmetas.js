@@ -46,6 +46,7 @@ function metapercent() {
     const novaMeta = document.getElementById("total_meta");
     const metaAtual = document.getElementById("total_meta1");
     const porcentagemInput = document.getElementById("Porcentagem");
+    
 
     if (!novaMeta || !metaAtual || !porcentagemInput) return;
 
@@ -69,5 +70,6 @@ function metapercent() {
     porcentagemInput.value = percentualDiferenca.toFixed(2) + "%";
     porcentagemInput.style.color = cor;
 }
+
 
 

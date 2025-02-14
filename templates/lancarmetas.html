@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançar Metas</title>
+    <link rel="stylesheet" href="/static/css/lancarmetas.css">
+</head>
+<body>
+    <h1>Lançar Metas</h1>
+
+    <div class="container">
+        <div class="box">
+            <div class="filter">
+                <label for="filter">Pesquisar</label>
+                <input type="text" name="filter" id="filter" placeholder="Digite para filtrar...">
+                <button class="filtrar">Filtrar</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>CD_EMPRESA</th>
+                    <th>Nome Completo</th>
+                    <th>Divisão</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in lancarmetas %}
+                <tr>
+                    <td>{{ item.CD_EMPRESA }}</td>
+                    <td>{{ item.Nome_completo }}</td>
+                    <td>{{ item.Divisao }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>

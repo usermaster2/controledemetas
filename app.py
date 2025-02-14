@@ -76,6 +76,31 @@ def verMetas():
     except Exception as e:
         return f"Erro: {e}"
     
+#LANCAR METAS#
+@app.route('/lancarmetas.html')
+def lancarmetas():
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(''' 
+        select CD_EMPRESA, Nome_completo, Divisao from geempres where DIVISAO IN ('C2', 'C3', 'C1', 'C4')
+        ''')
+        rows = cursor.fetchall()
+
+        # Formatar os dados em uma lista de dicionários
+        lancarmetas = [
+            {
+                'CD_EMPRESA': row[0],
+                'Nome_completo': row[1],
+                'Divisao': row[2]
+            }
+            for row in rows
+        ]
+
+        return render_template('lancarmetas.html', lancarmetas=lancarmetas)  # Passando os dados para o template
+    except Exception as e:
+        return f"Erro: {e}"
+
 
   
 

@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.box {
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start,;
+    width: 100%;
+}
+
+.filter label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.filter input {
+    width: 50%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%; 
+    border:5px solid #82342C;
+    box-shadow: 0 0 10px rgba(134, 91, 91, 0.2);
+    height: 90vh; 
+    overflow: hidden; 
+}
+
+thead {
+    position: sticky; 
+    top: 0;
+    z-index: 2; 
+    background-color: #82342C; 
+    color: white;
+}
+
+thead th, tbody td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd; /* Adiciona bordas */
+}
+
+tbody {
+    display: block; /* Separa o corpo para permitir scroll */
+    max-height: calc(90vh - 40px); /* Altura dinâmica para o corpo */
+    overflow-y: auto; /* Adiciona rolagem apenas no corpo */
+}
+
+tbody tr {
+    display: table; /* Mantém o layout de tabela */
+    width: 100%;
+    table-layout: fixed; /* Garante que as colunas fiquem alinhadas */
+}
+
+thead tr {
+    display: table; /* Garante alinhamento do cabeçalho com o corpo */
+    width: 100%;
+    table-layout: fixed;
+}
+
+th, td {
+    width: 33.33%; /* Todas as colunas terão largura igual */
+}
+
+
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+    }
+
+    tbody td {
+        display: block;
+        text-align: right;
+        padding: 10px;
+        position: relative;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
